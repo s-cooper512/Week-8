@@ -73,6 +73,13 @@ Insert into public."Employee_Details" ("Employee_ID", "Phone_Number", "SSN", "Ad
 Insert into public."Employee_Details" ("Employee_ID", "Phone_Number", "SSN", "Address") values (6, 4567890, 0987, 'Somewhere in 1800s England, I dunno');
 Insert into public."Employee_Details" ("Employee_ID", "Phone_Number", "SSN", "Address") values (7, 2167890, 6543, 'Ambiguous anime city-town, Japan');
 
+--Update info
+UPDATE public."Employee_Details"
+SET "SSN" = 9087,
+"Address" = 'Somewhere in early-1900s England, Iunno'
+WHERE "Employee_ID" = (SELECT "Employee_ID" FROM public."Employee" WHERE "Name" = 'Joseph Joestar');
+
+
 --Question 1: List all employees in a specific department
 SELECT public."Employee"."Name", public."Department"."Department_Name"
 FROM public."Employee"
